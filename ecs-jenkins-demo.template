@@ -69,7 +69,7 @@
     },
     "AWSRegionArch2AMI": {
       "us-east-1"       : { "PV64": "ami-f0ea638a", "HVM64": "ami-55ef662f" },
-      "us-west-2"       : { "PV64": "ami-da4694a2", "HVM64": "ami-bf4193c7" },
+      "us-west-2"       : { "HVM64": "ami-0ecf760d3d7e1fefa" },
       "us-west-1"       : { "PV64": "ami-3b1e265b", "HVM64": "ami-a51f27c5" },
       "eu-west-1"       : { "PV64": "ami-889622f1", "HVM64": "ami-1a962263" },
       "eu-central-1"    : { "PV64": "ami-2928ab46", "HVM64": "ami-bf2ba8d0" },
@@ -102,7 +102,7 @@
             "Action": ["sts:AssumeRole"]
           }]
         },
-        "ManagedPolicyArns":["arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryFullAccess","arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryFullAccess"],
+        "ManagedPolicyArns":["arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryFullAccess"],
         "Path": "/",
         "Policies": [{
           "PolicyName": "JenkinsRolePolicy",
@@ -448,11 +448,11 @@
               "yum remove -y java-1.7.0\n",
 
               "# Install Jenkins\n",
-              "sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo \n",
-              "sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key \n",
-              "yum install epel-release \n",
-              "sudo amazon-linux-extras install epel -y \n",
-              "yum install jenkins -y \n",
+              "sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo\n",
+              "sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key\n",
+              "yum install epel-release\n",
+              "sudo amazon-linux-extras install epel -y\n",
+              "yum install jenkins -y\n",
 
               "# Add Jenkins user to Docker group\n",
               "usermod -a -G docker jenkins\n",
